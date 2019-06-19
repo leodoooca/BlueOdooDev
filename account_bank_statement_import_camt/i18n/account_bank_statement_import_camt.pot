@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_bank_statement_import_camt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-21 10:50+0000\n"
+"PO-Revision-Date: 2019-05-21 10:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_bank_statement_import_camt
+#: model:ir.model,name:account_bank_statement_import_camt.model_account_bank_statement_import
+msgid "Import Bank Statement"
+msgstr ""
+
+#. module: account_bank_statement_import_camt
+#: model_terms:ir.ui.view,arch_db:account_bank_statement_import_camt.account_bank_statement_import_camt
+msgid "In case there are statements targeting multiple accounts, only those targeting the current account will be imported."
+msgstr ""
+
+#. module: account_bank_statement_import_camt
+#: model:ir.model,name:account_bank_statement_import_camt.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: account_bank_statement_import_camt
+#: code:addons/account_bank_statement_import_camt/tests/test_account_bank_statement_import_camt.py:206
+#: code:addons/account_bank_statement_import_camt/wizard/account_bank_statement_import_camt.py:260
+#, python-format
+msgid "Please set the IBAN account on your bank journal.\n"
+"\n"
+"This CAMT file is targeting several IBAN accounts but none match the current journal."
+msgstr ""
+
+#. module: account_bank_statement_import_camt
+#: model_terms:ir.ui.view,arch_db:account_bank_statement_import_camt.account_bank_statement_import_camt
+msgid "SEPA recommanded Cash Management format (CAMT.053)"
+msgstr ""
+

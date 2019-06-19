@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_financial_report_l10n_ae_trn" model="account.financial.html.report">
+        <field name="name">VAT Return Summary Report</field>
+        <field name='parent_id' ref='l10n_ae.account_reports_ae_statements_menu'/>
+        <field name="tax_report" eval="1"/>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h0" model="account.financial.html.report.line">
+        <field name="name">VAT on Sales and all other Outputs (Base)</field>
+        <field name="code">VATONSALE_OTH_OUT_BASE</field>
+        <field name="formulas"></field>
+        <field name="financial_report_id" ref="account_financial_report_l10n_ae_trn"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="0" />
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_1" model="account.financial.html.report.line">
+        <field name="name">1. Standard Rated supplies (Base)</field>
+        <field name="code">STD_RATE_SUPP_BASE</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_2" model="account.financial.html.report.line">
+        <field name="name">a. Abu Dhabi</field>
+        <field name="code">STD_RATE_SUPP_BASE_AB</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_abu_dhabi')])]"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_3" model="account.financial.html.report.line">
+        <field name="name">b. Dubai</field>
+        <field name="code">STD_RATE_SUPP_BASE_DB</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_dubai')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_4" model="account.financial.html.report.line">
+        <field name="name">c. Sharjah</field>
+        <field name="code">STD_RATE_SUPP_BASE_SJ</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_sharjah')])]"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_5" model="account.financial.html.report.line">
+        <field name="name">d. Ajman</field>
+        <field name="code">STD_RATE_SUPP_BASE_AJ</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_ajman')])]"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_6" model="account.financial.html.report.line">
+        <field name="name">e. Umm Al Quwain</field>
+        <field name="code">STD_RATE_SUPP_BASE_UM</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_umm_al_quwain')])]"/>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_7" model="account.financial.html.report.line">
+        <field name="name">f. Ras Al-Khaima</field>
+        <field name="code">STD_RATE_SUPP_BASE_RA</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_ras_al_khaima')])]"/>
+        <field name="sequence" eval="6"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_8" model="account.financial.html.report.line">
+        <field name="name">g. Fujairah</field>
+        <field name="code">STD_RATE_SUPP_BASE_FU</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_fujairah')])]"/>
+        <field name="sequence" eval="7"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_subtotal" model="account.financial.html.report.line">
+        <field name="name">Sub Total</field>
+        <field name="code">STD_RATE_SUPP_BASE_TOTAL</field>
+        <field name="formulas">balance = STD_RATE_SUPP_BASE_AB.balance + STD_RATE_SUPP_BASE_DB.balance + STD_RATE_SUPP_BASE_SJ.balance + STD_RATE_SUPP_BASE_AJ.balance + STD_RATE_SUPP_BASE_UM.balance + STD_RATE_SUPP_BASE_RA.balance + STD_RATE_SUPP_BASE_FU.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn0_1"/>
+        <field name="sequence" eval="8"/>
+        <field name="level" eval="3"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_9" model="account.financial.html.report.line">
+        <field name="name">2. Tax Refunds provided to Tourists under the Tax Refunds for Tourists Scheme</field>
+        <field name="code">TAX_REF_TOUR_SCHEME_BASE</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_11')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_10" model="account.financial.html.report.line">
+        <field name="name">3. Supplies subject to reverse charge provisions</field>
+        <field name="code">REVERSE_CHARGE_PRO_BASE</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_09')])]"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_11" model="account.financial.html.report.line">
+        <field name="name">4. Zero rated supplies</field>
+        <field name="code">ZERO_RATE_SUPP_BASE</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_05')])]"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_12" model="account.financial.html.report.line">
+        <field name="name">5. Exempt supplies</field>
+        <field name="code">EXAMPT_SUPP_BASE</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_03')])]"/>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <!-- TODO: need to form domain -->
+    <record id="account_financial_report_l10n_ae_trn0_13" model="account.financial.html.report.line">
+        <field name="name">6. Out of scope</field>
+        <field name="code">OUT_OF_SCOPE_BASE_0</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="sequence" eval="6"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_14" model="account.financial.html.report.line">
+        <field name="name">7. Goods imported into the UAE</field>
+        <field name="code">GOODS_IMPORT_IN_UAE_BASE</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_07')])]"/>
+        <field name="sequence" eval="7"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_15" model="account.financial.html.report.line">
+        <field name="name">8. Adjustments to goods imported into the UAE</field>
+        <field name="code">ADJUST_GOODS_IMPORT_IN_UAE_BASE</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="sequence" eval="8"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn0_16" model="account.financial.html.report.line">
+        <field name="name">9. Total</field>
+        <field name="code">TOTAL_BASE</field>
+        <field name="formulas">balance = ADJUST_GOODS_IMPORT_IN_UAE_BASE.balance + GOODS_IMPORT_IN_UAE_BASE.balance + OUT_OF_SCOPE_BASE_0.balance + EXAMPT_SUPP_BASE.balance + ZERO_RATE_SUPP_BASE.balance + REVERSE_CHARGE_PRO_BASE.balance + TAX_REF_TOUR_SCHEME_BASE.balance + STD_RATE_SUPP_BASE_TOTAL.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h0"/>
+        <field name="sequence" eval="9"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h1" model="account.financial.html.report.line">
+        <field name="name">VAT on Expenses and all other Inputs (Base)</field>
+        <field name="code">VAT_EXPENSES_OTHER_INPUT_BASE</field>
+        <field name="sequence" eval="2"/>
+        <field name="financial_report_id" ref="account_financial_report_l10n_ae_trn"/>
+        <field name="level" eval="0" />
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn1_1" model="account.financial.html.report.line">
+        <field name="name">10. Standard rated expenses</field>
+        <field name="code">STD_RATE_EXPENSES_BASE</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_02')])]"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn1_2" model="account.financial.html.report.line">
+        <field name="name">11. Supplies subject to the reverse charge provisions</field>
+        <field name="code">SUPP_REV_CHARGE_PRO_BASE</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h1"/>
+        <field name="domain" eval="[('tax_ids.tag_ids', 'in', [ref('l10n_ae.tag_ae_10')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <!-- TODO: need to form domain -->
+    <record id="account_financial_report_l10n_ae_trn1_3" model="account.financial.html.report.line">
+        <field name="name">12. Out of scope</field>
+        <field name="code">OUT_OF_SCOPE_1_BASE</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h1"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn1_4" model="account.financial.html.report.line">
+        <field name="name">13. Totals</field>
+        <field name="code">TOTAL</field>
+        <field name="formulas">balance = OUT_OF_SCOPE_1_BASE.balance + SUPP_REV_CHARGE_PRO_BASE.balance + STD_RATE_EXPENSES_BASE.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h1"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h3" model="account.financial.html.report.line">
+        <field name="name">VAT on Sales and all other Outputs (Tax)</field>
+        <field name="code">VATONSALE_OTH_OUT_TAX</field>
+        <field name="formulas"></field>
+        <field name="financial_report_id" ref="account_financial_report_l10n_ae_trn"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="0" />
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h4" model="account.financial.html.report.line">
+        <field name="name">1. Standard Rated supplies (Tax)</field>
+        <field name="code">STD_RATE_SUPP_TAX</field>
+        <field name="sequence" eval="1"/>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_2" model="account.financial.html.report.line">
+        <field name="name">a. Abu Dhabi</field>
+        <field name="code">STD_RATE_SUPP_TAX_AB</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_abu_dhabi')])]"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_3" model="account.financial.html.report.line">
+        <field name="name">b. Dubai</field>
+        <field name="code">STD_RATE_SUPP_TAX_DB</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_dubai')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_4" model="account.financial.html.report.line">
+        <field name="name">c. Sharjah</field>
+        <field name="code">STD_RATE_SUPP_TAX_SJ</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_sharjah')])]"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_5" model="account.financial.html.report.line">
+        <field name="name">d. Ajman</field>
+        <field name="code">STD_RATE_SUPP_TAX_AJ</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_ajman')])]"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_6" model="account.financial.html.report.line">
+        <field name="name">e. Umm Al Quwain</field>
+        <field name="code">STD_RATE_SUPP_TAX_UM</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_umm_al_quwain')])]"/>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_7" model="account.financial.html.report.line">
+        <field name="name">f. Ras Al-Khaima</field>
+        <field name="code">STD_RATE_SUPP_TAX_RA</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_ras_al_khaima')])]"/>
+        <field name="sequence" eval="6"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_8" model="account.financial.html.report.line">
+        <field name="name">g. Fujairah</field>
+        <field name="code">STD_RATE_SUPP_TAX_FU</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_01_fujairah')])]"/>
+        <field name="sequence" eval="7"/>
+        <field name="level" eval="2"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_subtotal" model="account.financial.html.report.line">
+        <field name="name">Sub Total</field>
+        <field name="code">STD_RATE_SUPP_TAX_TOTAL</field>
+        <field name="formulas">balance = STD_RATE_SUPP_TAX_AB.balance + STD_RATE_SUPP_TAX_DB.balance + STD_RATE_SUPP_TAX_SJ.balance + STD_RATE_SUPP_TAX_AJ.balance + STD_RATE_SUPP_TAX_UM.balance + STD_RATE_SUPP_TAX_RA.balance + STD_RATE_SUPP_TAX_FU.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h4"/>
+        <field name="sequence" eval="8"/>
+        <field name="level" eval="3"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_9" model="account.financial.html.report.line">
+        <field name="name">2. Tax Refunds provided to Tourists under the Tax Refunds for Tourists Scheme</field>
+        <field name="code">TAX_REF_TOUR_SCHEME_TAX</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_11')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_10" model="account.financial.html.report.line">
+        <field name="name">3. Supplies subject to reverse charge provisions</field>
+        <field name="code">REVERSE_CHARGE_PRO_TAX</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_09')])]"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_11" model="account.financial.html.report.line">
+        <field name="name">4. Zero rated supplies</field>
+        <field name="code">ZERO_RATE_SUPP_TAX</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_06')])]"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_12" model="account.financial.html.report.line">
+        <field name="name">5. Exempt supplies</field>
+        <field name="code">EXAMPT_SUPP_TAX</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_04')])]"/>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <!-- TODO: need to form domain -->
+    <record id="account_financial_report_l10n_ae_trn3_13" model="account.financial.html.report.line">
+        <field name="name">6. Out of scope</field>
+        <field name="code">OUT_OF_SCOPE_0_TAX</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="sequence" eval="6"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_14" model="account.financial.html.report.line">
+        <field name="name">7. Goods imported into the UAE</field>
+        <field name="code">GOODS_IMPORT_IN_UAE_TAX</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="sequence" eval="7"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_07')])]"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_15" model="account.financial.html.report.line">
+        <field name="name">8. Adjustments to goods imported into the UAE</field>
+        <field name="code">ADJUST_GOODS_IMPORT_IN_UAE_TAX</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="sequence" eval="8"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn3_16" model="account.financial.html.report.line">
+        <field name="name">9. Total</field>
+        <field name="code">TOTAL_TAX</field>
+        <field name="formulas">balance = STD_RATE_SUPP_TAX_TOTAL.balance + ADJUST_GOODS_IMPORT_IN_UAE_TAX.balance + GOODS_IMPORT_IN_UAE_TAX.balance + OUT_OF_SCOPE_0_TAX.balance + EXAMPT_SUPP_TAX.balance + ZERO_RATE_SUPP_TAX.balance + REVERSE_CHARGE_PRO_TAX.balance + TAX_REF_TOUR_SCHEME_TAX.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h3"/>
+        <field name="sequence" eval="9"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h5" model="account.financial.html.report.line">
+        <field name="name">VAT on Expenses and all other Inputs (Tax)</field>
+        <field name="code">VAT_EXPENSES_OTHER_INPUT_TAX</field>
+        <field name="formulas"></field>
+        <field name="financial_report_id" ref="account_financial_report_l10n_ae_trn"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="0" />
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn4_1" model="account.financial.html.report.line">
+        <field name="name">10. Standard rated expenses</field>
+        <field name="code">STD_RATE_EXPENSES_TAX</field>
+        <field name="formulas">balance = sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h5"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_02')])]"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn4_2" model="account.financial.html.report.line">
+        <field name="name">11. Supplies subject to the reverse charge provisions</field>
+        <field name="code">SUPP_REV_CHARGE_PRO_TAX</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h5"/>
+        <field name="domain" eval="[('tax_line_id.tag_ids', 'in', [ref('l10n_ae.tag_ae_10')])]"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <!-- TODO: need to form domain -->
+    <record id="account_financial_report_l10n_ae_trn4_3" model="account.financial.html.report.line">
+        <field name="name">12. Out of scope</field>
+        <field name="code">OUT_OF_SCOPE_1_TAX</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h5"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn4_4" model="account.financial.html.report.line">
+        <field name="name">13. Totals</field>
+        <field name="code">TOTAL_FINAL</field>
+        <field name="formulas">balance = OUT_OF_SCOPE_1_TAX.balance + SUPP_REV_CHARGE_PRO_TAX.balance + STD_RATE_EXPENSES_TAX.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h5"/>
+        <field name="sequence" eval="4"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="account_financial_report_l10n_ae_trn_h2" model="account.financial.html.report.line">
+        <field name="name">Net VAT Due</field>
+        <field name="code">NET_VAT_DUE</field>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="0" />
+        <field name="financial_report_id" ref="account_financial_report_l10n_ae_trn"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn2_1" model="account.financial.html.report.line">
+        <field name="name">14. Total value of due tax for the period</field>
+        <field name="code">TOTAL_DUE_TAX_FOR_PERIOD</field>
+        <field name="formulas">balance = TOTAL_TAX.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h2"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn2_2" model="account.financial.html.report.line">
+        <field name="name">15. Total value of recoverable tax for the period</field>
+        <field name="code">TOTAL_DUE_REC_TAX_FOR_PERIOD</field>
+        <field name="formulas">balance = TOTAL_FINAL.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h2"/>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+    <record id="account_financial_report_l10n_ae_trn2_3" model="account.financial.html.report.line">
+        <field name="name">16. Net VAT due (or reclaimed) for the period</field>
+        <field name="code">NET_VAT_DUE_FOR_PERIOD</field>
+        <field name="formulas">balance = TOTAL_TAX.balance - TOTAL_FINAL.balance</field>
+        <field name="parent_id" ref="account_financial_report_l10n_ae_trn_h2"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="1"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+</odoo>

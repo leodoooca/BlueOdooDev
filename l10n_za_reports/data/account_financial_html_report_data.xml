@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="financial_report_l10n_za" model="account.financial.html.report">
+        <field name="name">SARS VAT201</field>
+        <field name='parent_id' ref='l10n_za.account_reports_za_statements_menu'/>
+        <field name="tax_report" eval="1"/>
+    </record>
+
+    <record id="za_vat_financial_report_line_29" model="account.financial.html.report.line">
+        <field name="name">[20] VAT PAYABLE/REFUNDABLE (Total A - Total B)</field>
+        <field name="code">VAT20</field>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="0"/>
+        <field name="formulas"> balance = VAT13.balance - VAT19.balance</field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="financial_report_id" ref="financial_report_l10n_za"/>
+    </record>
+
+    <record id="za_vat_financial_report_line_20" model="account.financial.html.report.line">
+        <field name="name">[13] Total A: TOTAL OUTPUT TAX (4 + 4A + 9 + 11 + 12)</field>
+        <field name="code">VAT13</field>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="1"/>
+        <field name="formulas"> balance = VAT4.balance + VAT4A.balance + VAT9.balance + VAT11.balance + VAT12.balance</field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_29'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_28" model="account.financial.html.report.line">
+        <field name="name">[19] Total B: TOTAL INPUT TAX (14 + 14A + 15 + 16 + 17 + 18)</field>
+        <field name="code">VAT19</field>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="1"/>
+        <field name="formulas"> balance = VAT14.balance + VAT14A.balance + VAT15.balance + VAT16.balance + VAT17.balance + VAT18.balance</field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_29'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_01" model="account.financial.html.report.line">
+        <field name="name">[1] Standard Rate (Excluding Capital goods and/or services and accomodation)</field>
+        <field name="code">VAT1</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="domain" eval="['|',('tax_ids.tag_ids','in',ref('l10n_za.tag_ST1')), ('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST1')])]"/>
+        <field name="sequence" eval="1"/>
+        <field name="level" eval="3" />
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_03" model="account.financial.html.report.line">
+        <field name="name">[4] x 15/ (100 + 15)</field>
+        <field name="code">VAT4</field>
+        <field name="sequence" eval="2"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST1')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_04" model="account.financial.html.report.line">
+        <field name="name">[1A] Standard Rate (Only Capital goods and/or services)</field>
+        <field name="code">VAT1A</field>
+        <field name="formulas">balance = -sum.balance</field>
+        <field name="domain" eval="['|', ('tax_ids.tag_ids','in',ref('l10n_za.tag_ST1A')), ('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST1A')])]"/>
+        <field name="sequence" eval="3"/>
+        <field name="level" eval="3" />
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_06" model="account.financial.html.report.line">
+        <field name="name">[4A] x 15/ (100 + 15)</field>
+        <field name="code">VAT4A</field>
+        <field name="sequence" eval="5"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST1A')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_07" model="account.financial.html.report.line">
+        <field name="name">[2] Zero Rate (excluding goods exported)</field>
+        <field name="code">VAT2</field>
+        <field name="sequence" eval="6"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST2'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_08" model="account.financial.html.report.line">
+        <field name="name">[2A] Zero Rate (Only goods exported)</field>
+        <field name="code">VAT2A</field>
+        <field name="sequence" eval="7"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST2A'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_09" model="account.financial.html.report.line">
+        <field name="name">[3] Exempt and Non supplies</field>
+        <field name="code">VAT3</field>
+        <field name="sequence" eval="8"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST3'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_10" model="account.financial.html.report.line">
+        <field name="name">[5] Accomodation exceeding 28 days</field>
+        <field name="code">VAT5</field>
+        <field name="sequence" eval="9"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST5'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_12" model="account.financial.html.report.line">
+        <field name="name">[6] x 60%</field>
+        <field name="code">VAT6</field>
+        <field name="sequence" eval="11"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = VAT5.balance * 60 / 100</field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_11" model="account.financial.html.report.line">
+        <field name="name">VAT on Accomodation exceeding 28 days</field>
+        <field name="code">SEC6</field>
+        <field name="sequence" eval="10"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST5')])]"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="za_vat_financial_report_line_13" model="account.financial.html.report.line">
+        <field name="name">[7] Accomodation under 28 days</field>
+        <field name="code">VAT7</field>
+        <field name="sequence" eval="12"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST7'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_14" model="account.financial.html.report.line">
+        <field name="name">VAT on Accomodation under 28 days</field>
+        <field name="code">SEC7</field>
+        <field name="sequence" eval="13"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST7')])]"/>
+        <field name="special_date_changer">strict_range</field>
+    </record>
+
+    <record id="za_vat_financial_report_line_15" model="account.financial.html.report.line">
+        <field name="name">[8] Total (6 + 7)</field>
+        <field name="code">VAT8</field>
+        <field name="sequence" eval="14"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = VAT6.balance + VAT7.balance</field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_16" model="account.financial.html.report.line">
+        <field name="name">[9] x 15 / (100 ??) </field>
+        <field name="code">VAT9</field>
+        <field name="sequence" eval="15"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = SEC6.balance * 60/100 + SEC7.balance </field>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_18" model="account.financial.html.report.line">
+        <field name="name">[10] Change in use and export of second-hand goods</field>
+        <field name="code">VAT10</field>
+        <field name="sequence" eval="17"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance + VAT11.balance</field>
+        <field name="domain" eval="[('tax_ids.tag_ids','in',ref('l10n_za.tag_ST10'))]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_19" model="account.financial.html.report.line">
+        <field name="name">[11] x 15 / (100 + 15)</field>
+        <field name="code">VAT11</field>
+        <field name="sequence" eval="18"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST10')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_30" model="account.financial.html.report.line">
+        <field name="name">[12] Other and imported services</field>
+        <field name="code">VAT12</field>
+        <field name="sequence" eval="19"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = -sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_ST12')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_20'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_21" model="account.financial.html.report.line">
+        <field name="name">[14] Capital Goods and/or services supplied to you</field>
+        <field name="code">VAT14</field>
+        <field name="sequence" eval="21"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT14')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_22" model="account.financial.html.report.line">
+        <field name="name">[14A] Capital Goods imported by you</field>
+        <field name="code">VAT14A</field>
+        <field name="sequence" eval="22"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT14A')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_23" model="account.financial.html.report.line">
+        <field name="name">[15] Other goods and/or services supplied to you (not Capital Goods)</field>
+        <field name="code">VAT15</field>
+        <field name="sequence" eval="23"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT15')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_24" model="account.financial.html.report.line">
+        <field name="name">[15A] Other goods imported by you (not Capital Goods)</field>
+        <field name="code">VAT15A</field>
+        <field name="sequence" eval="24"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT15A')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_25" model="account.financial.html.report.line">
+        <field name="name">[16] Change in Use</field>
+        <field name="code">VAT16</field>
+        <field name="sequence" eval="25"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT16')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_26" model="account.financial.html.report.line">
+        <field name="name">[17] Bad Debts</field>
+        <field name="code">VAT17</field>
+        <field name="sequence" eval="26"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT17')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+    <record id="za_vat_financial_report_line_27" model="account.financial.html.report.line">
+        <field name="name">[18] Other</field>
+        <field name="code">VAT18</field>
+        <field name="sequence" eval="27"/>
+        <field name="level" eval="3"/>
+        <field name="formulas"> balance = sum.balance</field>
+        <field name="domain" eval="[('tax_line_id.tag_ids','in',[ref('l10n_za.tag_PT18')])]"/>
+        <field name="special_date_changer">strict_range</field>
+        <field name="parent_id" ref='za_vat_financial_report_line_28'/>
+    </record>
+
+</odoo>

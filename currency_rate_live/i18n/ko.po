@@ -1,0 +1,193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * currency_rate_live
+# 
+# Translators:
+# Martin Trigaux, 2018
+# Jongkwan, Yeom <jongkwanyeom@gmail.com>, 2018
+# Link Up링크업 <linkup.way@gmail.com>, 2018
+# JH CHOI <hwangtog@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-15 15:18+0000\n"
+"PO-Revision-Date: 2018-08-24 11:37+0000\n"
+"Last-Translator: JH CHOI <hwangtog@gmail.com>, 2019\n"
+"Language-Team: Korean (https://www.transifex.com/odoo/teams/41243/ko/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: currency_rate_live
+#: model_terms:ir.ui.view,arch_db:currency_rate_live.res_config_settings_view_form
+msgid ""
+"<i title=\"Update now\" role=\"img\" aria-label=\"Update now\" class=\"fa "
+"fa-fw fa-refresh\"/>"
+msgstr ""
+"<i title=\"Update now\" role=\"img\" aria-label=\"Update now\" class=\"fa "
+"fa-fw fa-refresh\"/>"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "Bank Of Canada"
+msgstr "캐나다 은행"
+
+#. module: currency_rate_live
+#: model:ir.model,name:currency_rate_live.model_res_company
+msgid "Companies"
+msgstr "회사"
+
+#. module: currency_rate_live
+#: model:ir.model,name:currency_rate_live.model_res_config_settings
+msgid "Config Settings"
+msgstr "설정 구성"
+
+#. module: currency_rate_live
+#: model:ir.actions.server,name:currency_rate_live.ir_cron_currency_update_ir_actions_server
+#: model:ir.cron,cron_name:currency_rate_live.ir_cron_currency_update
+#: model:ir.cron,name:currency_rate_live.ir_cron_currency_update
+msgid "Currency: rate update"
+msgstr "통화 : 환율 업데이트"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_interval_unit:0
+msgid "Daily"
+msgstr "일별"
+
+#. module: currency_rate_live
+#: model:res.company,overdue_msg:currency_rate_live.res_company_company_1
+#: model:res.company,overdue_msg:currency_rate_live.res_company_company_2
+msgid ""
+"Dear Sir/Madam,\n"
+"\n"
+"Our records indicate that some payments on your account are still due. Please find details below.\n"
+"If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\n"
+"If you have any queries regarding your account, Please contact us.\n"
+"\n"
+"Thank you in advance for your cooperation.\n"
+"Best Regards,"
+msgstr ""
+"안녕하십니까.\n"
+"\n"
+"저희 기록에 따르면 귀하의 계정에 미수금이 존재합니다. 아래에서 자세한 사항을 확인해주십시오.\n"
+"이미 대금이 지불되었다면 이 고지를 무시하십시오. 그렇지 않을 경우 아래의 금액을 저희에게 지불해주시기 바랍니다.\n"
+"계정과 관련된 문의 사항이 있으면 연락해 주십시오.\n"
+"\n"
+"귀사의 협조에 미리 감사드립니다.\n"
+"안녕히 계십시오."
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "European Central Bank"
+msgstr "유럽 중앙 은행"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "Federal Tax Administration (Switzerland)"
+msgstr "연방 세무 행정국 (스위스)"
+
+#. module: currency_rate_live
+#: model_terms:ir.ui.view,arch_db:currency_rate_live.res_config_settings_view_form
+msgid "Interval"
+msgstr "간격"
+
+#. module: currency_rate_live
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_company__currency_interval_unit
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_config_settings__currency_interval_unit
+msgid "Interval Unit"
+msgstr "간격 단위"
+
+#. module: currency_rate_live
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_company__last_currency_sync_date
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_config_settings__last_currency_sync_date
+#: model_terms:ir.ui.view,arch_db:currency_rate_live.res_config_settings_view_form
+msgid "Last Sync Date"
+msgstr "최근 동기 날짜"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_interval_unit:0
+msgid "Manually"
+msgstr "수동"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "Mexican Bank"
+msgstr "멕시코 은행"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_interval_unit:0
+msgid "Monthly"
+msgstr "월간"
+
+#. module: currency_rate_live
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_company__currency_next_execution_date
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_config_settings__currency_next_execution_date
+msgid "Next Execution Date"
+msgstr "다음 실행일"
+
+#. module: currency_rate_live
+#: model_terms:ir.ui.view,arch_db:currency_rate_live.res_config_settings_view_form
+msgid "Next Run"
+msgstr "다음 실행"
+
+#. module: currency_rate_live
+#: model_terms:ir.ui.view,arch_db:currency_rate_live.res_config_settings_view_form
+msgid "Service"
+msgstr "서비스"
+
+#. module: currency_rate_live
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_company__currency_provider
+#: model:ir.model.fields,field_description:currency_rate_live.field_res_config_settings__currency_provider
+msgid "Service Provider"
+msgstr "서비스 공급자"
+
+#. module: currency_rate_live
+#: code:addons/currency_rate_live/models/res_config_settings.py:387
+#, python-format
+msgid ""
+"The Yahoo currency rate web service has been discontinued. Please select "
+"another currency rate provider."
+msgstr "야후 환율 웹 서비스는 중단되었습니다. 다른 통화 요금 공급자를 선택하세요."
+
+#. module: currency_rate_live
+#: code:addons/currency_rate_live/models/res_config_settings.py:103
+#, python-format
+msgid ""
+"Unable to connect to the online exchange rate platform %s. The web service "
+"may be temporary down."
+msgstr "온라인 환율 플랫폼 %s에 연결할 수 없습니다. 웹 서비스가 일시적으로 중단될 수 있습니다."
+
+#. module: currency_rate_live
+#: code:addons/currency_rate_live/models/res_config_settings.py:390
+#, python-format
+msgid ""
+"Unable to connect to the online exchange rate platform. The web service may "
+"be temporary down. Please try again in a moment."
+msgstr "온라인 환율 플랫폼에 연결할 수 없습니다. 웹 서비스가 일시적으로 중단될 수 있습니다. 잠시 후에 다시 시도해 주세요."
+
+#. module: currency_rate_live
+#: selection:res.company,currency_interval_unit:0
+msgid "Weekly"
+msgstr "매주"
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "Yahoo (DISCONTINUED)"
+msgstr "야후 (중단)"
+
+#. module: currency_rate_live
+#: code:addons/currency_rate_live/models/res_config_settings.py:143
+#, python-format
+msgid ""
+"Your main currency (%s) is not supported by this exchange rate provider. "
+"Please choose another one."
+msgstr "사용자의 기본 통화(%s)가 이 환율 공급자에서 지원되지 않습니다. 다른 것을 선택하세요."
+
+#. module: currency_rate_live
+#: selection:res.company,currency_provider:0
+msgid "xe.com"
+msgstr "xe.com"
